@@ -13,6 +13,8 @@ gs = 15;
 tcx = window.innerWidth/15;
 tcy = window.innerHeight/15;
 ax=ay=15;
+ob1=30;
+ob2=30;
 xv=yv=0;
 trail=[];
 tail = 5;
@@ -37,8 +39,16 @@ function game() {
 	if(py>tcy-1){
 		py= 0;
 	}
+
+
+
+
+
 	ctx.fillStyle="pink"; //cor d o BG
 	ctx.fillRect(0,0,canv.width,canv.height);
+
+		contador = 1;
+
 	ctx.fillStyle="blue"; // cor da cobra
 	for(var i=0;i<trail.length;i++) {
         	ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
@@ -51,18 +61,52 @@ function game() {
     	
 	while(trail.length>tail) {
     		trail.shift();
-    	}
+		}
+
+
+		if(ax==px && ay==py) {
+        	
+			ob1 = Math.floor(tcx*Math.random());
+			ob2 = Math.floor(Math.random()*tcy);
+            
+			
+			
+		}
+		
+		if(ob1==px && ob2==py) {
+
+			alert("Perdeu Arrombado");
+			location.reload();
+		}
  
     	if(ax==px && ay==py) {
         	tail++;
         	ax=Math.floor(Math.random()*tcx);
-            ay=Math.floor(Math.random()*tcy);
+			ay=Math.floor(Math.random()*tcy);
+			
             teste = 0;
             teste = teste + 15000;
-            setInterval(game,teste/30);
-    	}
+			setInterval(game,teste/30);
+			
+			
+		}
+
+
+		
+		
+
+
     	ctx.fillStyle="green";
-    	ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+		ctx.fillRect(ax*gs,ay*gs,gs-2,gs-2);
+		
+
+		//obstaculo
+
+		
+		ctx.fillStyle="red"; //cor d o BG
+		ctx.fillRect(ob1*gs,ob2*gs,13,13);
+	
+		//end 
 }
 function keyPush(evt) {
 	switch(evt.keyCode) {
