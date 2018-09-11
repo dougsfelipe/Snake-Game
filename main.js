@@ -3,8 +3,8 @@ window.onload=function(){
 	ctx=canv.getContext("2d"); // 
 	document.addEventListener("keydown", keyPush);
 	setInterval(game,1000/15); //intervalo de tempo que roda o jogo
-	canv.width  = window.innerWidth -20;   //tamanho da janela
-	canv.height = window.innerHeight -20;  //tamanho da janela
+	canv.width  = window.innerWidth -4;   //tamanho da janela
+	canv.height = window.innerHeight-4;  //tamanho da janela
 }
 
 
