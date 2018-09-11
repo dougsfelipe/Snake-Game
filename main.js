@@ -3,15 +3,25 @@ window.onload=function(){
 	ctx=canv.getContext("2d"); // 
 	document.addEventListener("keydown", keyPush);
 	setInterval(game,1000/15); //intervalo de tempo que roda o jogo
+	canv.width  = window.innerWidth -20;   //tamanho da janela
+	canv.height = window.innerHeight -20;  //tamanho da janela
 }
+
+
 px=py=10;
 gs = 15;
-tcx = 80;
-tcy = 20;
+tcx = window.innerWidth/15;
+tcy = window.innerHeight/15;
 ax=ay=15;
 xv=yv=0;
 trail=[];
 tail = 5;
+
+function resize() {
+    canvas.width = parseFloat((window.getComputedStyle(canvas).width));
+    canvas.height = parseFloat((window.getComputedStyle(canvas).height));
+}
+
 function game() {
 	px+=xv;
 	py+=yv;
@@ -68,5 +78,7 @@ function keyPush(evt) {
 	   case 40:
 		xv=0;yv=1;
 		break;
+
+		
 	}
 }
