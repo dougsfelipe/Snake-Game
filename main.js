@@ -28,28 +28,48 @@ function game() {
 	px+=xv;
 	py+=yv;
 	if(px<0){
-		px=tcx-1;
+		alert("Perdeu Arrombado");
+			location.reload();
 	}
 	if(px>tcx-1){
-		px= 0;
+		alert("Perdeu Arrombado");
+			location.reload();
 	}
 	if(py<0){
-		py=tcy-1;
+		alert("Perdeu Arrombado");
+			location.reload();
 	}
 	if(py>tcy-1){
-		py= 0;
+		alert("Perdeu Arrombado");
+			location.reload();
 	}
 
 
 
 
 
-	ctx.fillStyle="pink"; //cor d o BG
+	ctx.fillStyle="#99cb98"; //cor d o BG
 	ctx.fillRect(0,0,canv.width,canv.height);
 
-		contador = 1;
 
-	ctx.fillStyle="blue"; // cor da cobra
+	ctx.fillStyle="black"; //cor d o BG
+	ctx.fillRect(0,canv.height-15,canv.width,15);
+
+	ctx.fillStyle="black"; //cor d o BG
+	ctx.fillRect(0,0,canv.width,15);
+
+
+
+	ctx.fillStyle="black"; //cor d o BG
+	ctx.fillRect(canv.width-15,0,15,canv.width);
+
+
+	ctx.fillStyle="black"; //cor d o BG
+	ctx.fillRect(0,0,15,canv.width);
+
+
+
+	ctx.fillStyle="#171717"; // cor da cobra
 	for(var i=0;i<trail.length;i++) {
         	ctx.fillRect(trail[i].x*gs,trail[i].y*gs,gs-2,gs-2);
         	if(trail[i].x==px && trail[i].y==py) {
