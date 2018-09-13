@@ -30,29 +30,29 @@ function game() {
 	px += xv;
 	py += yv;
 	if (px < 0) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (px > tcx - 1) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (py < 0) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (py > tcy - 1) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
 	if (px > obst) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
 	if (py > obst) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
@@ -84,28 +84,7 @@ function game() {
 	//Final paredes
 
 
-	//Obstaculos meio
 
-	ctx.fillStyle = "black";
-	ctx.fillRect(255, 255, 13, 205);
-
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(1020, 255, 13, 205);
-
-	//Final obstaculos meio
-
-
-	//Obstaculos meio
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(canv.height/1.5, 105, 350, 13);
-
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(canv.height/1.5, 540, 350, 13);
-
-	//Final obstaculos meio
 
 
 
@@ -117,11 +96,17 @@ function game() {
 		}
 	}
 
+
+	
+
 	trail.push({ x: px, y: py });
 
 	while (trail.length > tail) {
 		trail.shift();
 	}
+
+	
+
 
 
 	if (ax == px && ay == py) {
@@ -133,11 +118,13 @@ function game() {
 
 	}
 
-	if (ob1 == px && ob2 == py) {
+	if (px == ob1 && py == ob2) {
 
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
+
+	
 
 	if (ax == px && ay == py) {
 		tail++;
@@ -164,7 +151,7 @@ function game() {
 
 
 	ctx.fillStyle = "red"; //cor d o BG
-	ctx.fillRect(ob1 * gs, ob2 * gs, 13, 13);
+	ctx.fillRect(ob1 * gs, ob2 * gs, 13,13);
 
 	//end 
 }
