@@ -19,6 +19,10 @@ xv = yv = 0;
 trail = [];
 tail = 5;
 
+ObstaculoX=[];
+ObstaculoY=[];
+cont=1;
+
 obst = 200;
 
 function resize() {
@@ -26,33 +30,45 @@ function resize() {
 	canvas.height = parseFloat((window.getComputedStyle(canvas).height));
 }
 
+
+ 
+  
+  var audio = new Audio('X.mp3');
+  var riso = new Audio('riso.mp3');
+  
+
+
 function game() {
+
+	
+
+
 	px += xv;
 	py += yv;
 	if (px < 0) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (px > tcx - 1) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (py < 0) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 	if (py > tcy - 1) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
 	if (px > obst) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
 	if (py > obst) {
-		alert("Perdeu Arrombado");
+		alert("You Lose");
 		location.reload();
 	}
 
@@ -86,33 +102,16 @@ function game() {
 
 	//Obstaculos meio
 
-	ctx.fillStyle = "black";
-	ctx.fillRect(255, 255, 13, 205);
-
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(1020, 255, 13, 205);
-
-	//Final obstaculos meio
-
-
-	//Obstaculos meio
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(canv.height/1.5, 105, 350, 13);
-
-
-	ctx.fillStyle = "black";
-	ctx.fillRect(canv.height/1.5, 540, 350, 13);
-
+	
 	//Final obstaculos meio
 
 
 
 	ctx.fillStyle = "#171717"; // cor da cobra
+	
 	for (var i = 0; i < trail.length; i++) {
 		ctx.fillRect(trail[i].x * gs, trail[i].y * gs, gs - 2, gs - 2);
-		if (trail[i].x == px && trail[i].y == py) {
+		if (trail[i].x == px && trail[i].y == py && tail < 5) {
 			tail = 5;
 		}
 	}
@@ -129,20 +128,22 @@ function game() {
 		ob1 = Math.floor(tcx * Math.random());
 		ob2 = Math.floor(Math.random() * tcy);
 
-
+		
 
 	}
 
-	if (ob1 == px && ob2 == py) {
-
-		alert("Perdeu Arrombado");
-		location.reload();
-	}
+	
 
 	if (ax == px && ay == py) {
+		audio.play();
+		
 		tail++;
+		cont++;
 		ax = Math.floor(Math.random() * tcx);
 		ay = Math.floor(Math.random() * tcy);
+
+		ObstaculoX[cont]=ob1;
+        ObstaculoY[cont]=ob2;
 
 		teste = 0;
 		teste = teste + 15000;
@@ -164,7 +165,25 @@ function game() {
 
 
 	ctx.fillStyle = "red"; //cor d o BG
-	ctx.fillRect(ob1 * gs, ob2 * gs, 13, 13);
+	for(var i=0 ;i<cont;i++){
+		ctx.fillRect(ObstaculoX[i+1] * gs, ObstaculoY[i+1] * gs, 13, 13);
+		
+		}
+
+		for(var i=0 ;i<cont+1;i++){
+			
+			if (ObstaculoX[i+1] == px && ObstaculoY[i+1] == py) {
+				riso.play();
+				audio.pause();
+				alert("You Lose");
+				location.reload();
+			}
+			
+			}
+
+	
+	
+
 
 	//end 
 }
