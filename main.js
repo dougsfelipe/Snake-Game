@@ -116,11 +116,17 @@ function game() {
 		}
 	}
 
+
+	
+
 	trail.push({ x: px, y: py });
 
 	while (trail.length > tail) {
 		trail.shift();
 	}
+
+	
+
 
 
 	if (ax == px && ay == py) {
@@ -131,6 +137,8 @@ function game() {
 		
 
 	}
+
+	
 
 	
 
