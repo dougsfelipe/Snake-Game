@@ -70,7 +70,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -78,7 +78,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -86,7 +86,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -94,7 +94,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -103,7 +103,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -112,7 +112,7 @@ function game() {
 		riso.play();
 		audio.pause();
 
-		alert("You Lose " + score);
+		alert("You Lose Pontos:" + score);
 		score = 0;
 		location.reload();
 	}
@@ -251,7 +251,7 @@ function game() {
 			riso.play();
 			audio.pause();
 
-			alert("You Lose " + score);
+			alert("You Lose Pontos:" + score);
 			score = 0;
 			location.reload();
 
