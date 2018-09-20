@@ -35,26 +35,20 @@ function resize() {
 
 
 var audio = new Howl({
-	src: ['X.mp3'],
+	src: ['Fundo.mp3'],
 	autoplay: true,
 	loop: true,
-	volume: 0.01,
+	volume: 0.1,
 });
 
 var riso = new Howl({
-	src: ['riso.mp3'],
-	autoplay: true,
-	loop: true,
-	volume: 0.8,
+	src: ['Perdeu.mp3'],
+	volume: 1,
 });
 
 
-var pb1 = new Audio('pb1.mp3');
-var pb2 = new Audio('pb2.mp3');
-var pb3 = new Audio('pb3.mp3');
-var pb4 = new Audio('pb4.mp3');
-var pb5 = new Audio('pb5.mp3');
-var pb6 = new Audio('pb6.mp3');
+var pb1 = new Audio('Ponto.mp3');
+
 
 
 
@@ -67,52 +61,52 @@ function game() {
 	px += xv;
 	py += yv;
 	if (px < 0) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
 	if (px > tcx - 1) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
 	if (py < 0) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
 	if (py > tcy - 1) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
 
 	if (px > obst) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
 
 	if (py > obst) {
-		riso.play();
 		audio.pause();
-
-		alert("You Lose Pontos:" + score);
+		pb1.pause();
+		riso.play();
+		alert("You Lose Pontos: " + score);
 		score = 0;
 		location.reload();
 	}
@@ -176,8 +170,8 @@ function game() {
 
 	if (ax == px && ay == py) {
 
-		ob1 = Math.floor((tcx-15) * Math.random());
-		ob2 = Math.floor(Math.random() * (tcy-15));
+		ob1 = Math.floor((tcx-20) * Math.random());
+		ob2 = Math.floor(Math.random() * (tcy-20));
 
 
 
@@ -191,22 +185,10 @@ function game() {
 
 		if (cont == 1) {
 			audio.play();
-		}else if(cont ==2){
-
-			pb1.play();
-
-		}else if(cont ==3) {
-			pb2.play();
-		} else if (cont ==4) {
-			pb3.play();
-		}else if (cont ==5) {
-			pb4.play();
-		}else if(cont ==6) {
-			pb5.play();
-		}else if (cont ==7) {
-			pb6.play();
 		}else{
+
 			pb1.play();
+
 		}
 
 		
@@ -214,8 +196,8 @@ function game() {
 		score = score + 5 * cont;
 		tail++;
 		cont++;
-		ax = Math.floor(Math.random() * (tcx-3));
-		ay = Math.floor(Math.random() * (tcy-3));
+		ax = Math.floor(Math.random() * (tcx-20));
+		ay = Math.floor(Math.random() * (tcy-20));
 
 		ObstaculoX[cont] = ob1;
 		ObstaculoY[cont] = ob2;
@@ -230,7 +212,8 @@ function game() {
 
 
 
-
+	
+	   
 
 	ctx.fillStyle = "green";
 	ctx.fillRect(ax * gs, ay * gs, gs - 2, gs - 2);
@@ -247,17 +230,21 @@ function game() {
 
 	for (var i = 0; i < cont + 1; i++) {
 
-		if (ObstaculoX[i + 1] == px && ObstaculoY[i + 1] == py) {
-			riso.play();
+		if (ObstaculoX[i ] == px && ObstaculoY[i ] == py) {
+			pb1.pause();
 			audio.pause();
+			riso.play();
 
-			alert("You Lose Pontos:" + score);
+			alert("You Lose Pontos: " + score);
 			score = 0;
 			location.reload();
 
 		}
 
 	}
+
+
+	
 
 
 
