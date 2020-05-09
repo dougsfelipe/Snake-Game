@@ -1,10 +1,4 @@
-Snake Game :snake: JS
+Snake Game
 <br>Joguinho da cobra feito em javascript e HTML
 
-Para rodar
 
-1.git clone https://github.com/dougsfelipe/Snake-Game---JS.git
-2.abra index.html
-3.Seja Feliz :grin:
-
-Contribuições sao bem vindas :pray:
