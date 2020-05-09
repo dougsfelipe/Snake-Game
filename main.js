@@ -27,6 +27,8 @@ obst = 200;
 
 score = 0;
 
+
+
 function resize() {
 	canvas.width = parseFloat((window.getComputedStyle(canvas).width));
 	canvas.height = parseFloat((window.getComputedStyle(canvas).height));
@@ -34,12 +36,14 @@ function resize() {
 
 
 
-var audio = new Howl({
+var audio1 = new Howl({
 	src: ['Fundo.mp3'],
 	autoplay: true,
 	loop: true,
-	volume: 0.1,
+	volume: 0.3,
 });
+
+
 
 var riso = new Howl({
 	src: ['Perdeu.mp3'],
@@ -48,14 +52,36 @@ var riso = new Howl({
 
 
 var pb1 = new Audio('Ponto.mp3');
+var audio = new Audio('Fundo.mp3');
 
 
+function resetar(){
+	px = py = 10;
+gs = 15;
+tcx = window.innerWidth / 15;
+tcy = window.innerHeight / 15;
+ax = ay = 15;
+ob1 = 30;
+ob2 = 30;
+xv = yv = 0;
+trail = [];
+tail = 5;
+
+ObstaculoX = [];
+ObstaculoY = [];
+cont = 1;
+
+obst = 200;
+
+score = 0;
+}
 
 
 
 function game() {
 
-
+	
+	audio.play();
 
 
 	px += xv;
@@ -64,51 +90,60 @@ function game() {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+		alert("You Lose Pontos1: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 	if (px > tcx - 1) {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+		alert("You Lose Pontos2: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 	if (py < 0) {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+		riso.play();
+		alert("You Lose Pontos3: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 	if (py > tcy - 1) {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+		alert("You Lose Pontos4: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 
 	if (px > obst) {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+		alert("You Lose Pontos5: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 
 	if (py > obst) {
 		audio.pause();
 		pb1.pause();
 		riso.play();
-		alert("You Lose Pontos: " + score);
+
+
+		alert("You Lose Pontos6: " + score);
 		score = 0;
 		location.reload();
+		resetar();
 	}
 
 
@@ -183,13 +218,10 @@ function game() {
 
 	if (ax == px && ay == py) {
 
-		if (cont == 1) {
-			audio.play();
-		}else{
-
+		
 			pb1.play();
 
-		}
+		
 
 		
 
@@ -234,10 +266,11 @@ function game() {
 			pb1.pause();
 			audio.pause();
 			riso.play();
-
 			alert("You Lose Pontos: " + score);
+			
 			score = 0;
 			location.reload();
+			resetar();
 
 		}
 
