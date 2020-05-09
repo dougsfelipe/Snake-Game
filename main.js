@@ -219,6 +219,7 @@ function game() {
 	if (ax == px && ay == py) {
 
 		
+		
 			pb1.play();
 
 		
